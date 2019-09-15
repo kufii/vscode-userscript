@@ -3,6 +3,7 @@
   "displayName": "UserScript",
   "description": "UserScript language support for VS Code",
   "version": "1.0.0",
+  "publisher": "adpyke",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kufii/vscode-userscript.git"

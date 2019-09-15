@@ -1,0 +1,57 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "JavaScript UserScript",
+  "fileTypes": ["user.js"],
+  "patterns": [
+    {
+      "begin": "//\\s*==UserScript==",
+      "beginCaptures": {
+        "0": {
+          "name": "comment.block.documentation.js"
+        }
+      },
+      "end": "//\\s*==/UserScript==",
+      "endCaptures": {
+        "0": {
+          "name": "comment.block.documentation.js"
+        }
+      },
+      "patterns": [{ "include": "#userscript-header" }]
+    },
+    {
+      "include": "source.js"
+    }
+  ],
+  "repository": {
+    "userscript-header": {
+      "patterns": [
+        {
+          "match": "^(//)\\s*((@)[^\\s]+)\\s*(.*)",
+          "captures": {
+            "1": {
+              "name": "comment.block.documentation.js"
+            },
+            "2": {
+              "name": "storage.type.class.jsdoc"
+            },
+            "3": {
+              "name": "punctuation.definition.block.tag.jsdoc"
+            },
+            "4": {
+              "name": "entity.name.type.instance.jsdoc"
+            }
+          }
+        },
+        {
+          "match": "^//.*",
+          "captures": {
+            "0": {
+              "name": "comment.block.documentation"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "scopeName": "source.user.js"
+}

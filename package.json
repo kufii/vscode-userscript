@@ -1,0 +1,44 @@
+{
+  "name": "vscode-userscript",
+  "displayName": "UserScript",
+  "description": "UserScript language support for VS Code",
+  "version": "0.0.1",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write \"**/*.{js,jsx,md,json,css,prettierrc,eslintrc}\""
+  },
+  "engines": {
+    "vscode": "^1.38.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "userjs",
+        "aliases": [
+          "JavaScript UserScript",
+          "userjs"
+        ],
+        "extensions": [
+          ".user.js"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "userjs",
+        "scopeName": "source.user.js",
+        "path": "./syntaxes/userjs.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-adpyke-es6": "^1.4.12",
+    "eslint-config-prettier": "^6.3.0",
+    "prettier": "^1.18.2"
+  }
+}

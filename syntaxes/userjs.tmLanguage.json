@@ -26,19 +26,167 @@
     "userscript-header": {
       "patterns": [
         {
-          "match": "^(//)\\s*((@)[^\\s]+)\\s*(.*)",
+          "match": "^//\\s*((@)(?:name(?::[^\\s]+)?|author|description|nocompat))\\s+(.*)",
           "captures": {
-            "1": {
+            "0": {
               "name": "comment.block.documentation.js"
             },
-            "2": {
+            "1": {
               "name": "storage.type.class.jsdoc"
             },
-            "3": {
+            "2": {
               "name": "punctuation.definition.block.tag.jsdoc"
             },
-            "4": {
+            "3": {
               "name": "entity.name.type.instance.jsdoc"
+            }
+          }
+        },
+        {
+          "match": "^//\\s*((@)grant)\\s+([^\\s]*).*",
+          "captures": {
+            "0": {
+              "name": "comment.block.documentation.js"
+            },
+            "1": {
+              "name": "storage.type.class.jsdoc"
+            },
+            "2": {
+              "name": "punctuation.definition.block.tag.jsdoc"
+            },
+            "3": {
+              "patterns": [
+                {
+                  "match": "\\b(?:none|unsafeWindow|window.close|window.focus|GM[_\\.]addStyle|GM[_\\.]deleteValue|GM[_\\.]listValues|GM[_\\.]addValueChangeListener|GM[_\\.]removeValueChangeListener|GM[_\\.]setValue|GM[_\\.]getValue|GM[_\\.]log|GM[_\\.]getResourceText|GM[_\\.]getResourceURL|GM[_\\.]registerMenuCommand|GM[_\\.]unregisterMenuCommand|GM[_\\.]openInTab|GM[_\\.]xmlhttpRequest|GM[_\\.]download|GM[_\\.]getTab|GM[_\\.]saveTab|GM[_\\.]getTabs|GM[_\\.]notification|GM[_\\.]setClipboard|GM[_\\.]info)\\b",
+                  "name": "constant.language.symbol-type.jsdoc"
+                },
+                { "match": ".*", "name": "comment.block.documentation.js" }
+              ]
+            }
+          }
+        },
+        {
+          "match": "^//\\s*((@)run-at)\\s+([^\\s]*).*",
+          "captures": {
+            "0": {
+              "name": "comment.block.documentation.js"
+            },
+            "1": {
+              "name": "storage.type.class.jsdoc"
+            },
+            "2": {
+              "name": "punctuation.definition.block.tag.jsdoc"
+            },
+            "3": {
+              "patterns": [
+                {
+                  "match": "\\b(?:document-start|document-body|document-end|document-idle|context-menu)\\b",
+                  "name": "constant.language.symbol-type.jsdoc"
+                },
+                { "match": ".*", "name": "comment.block.documentation.js" }
+              ]
+            }
+          }
+        },
+        {
+          "match": "^//\\s*((@)(?:namespace|homepage|homepageURL|website|source|icon|iconURL|defaulticon|icon64|icon64URL|updateURL|downloadURL|supportURL|require|connect))\\s+(.*)",
+          "captures": {
+            "0": {
+              "name": "comment.block.documentation.js"
+            },
+            "1": {
+              "name": "storage.type.class.jsdoc"
+            },
+            "2": {
+              "name": "punctuation.definition.block.tag.jsdoc"
+            },
+            "3": {
+              "name": "variable.other.link.underline.jsdoc"
+            }
+          }
+        },
+        {
+          "match": "^//\\s*((@)version)\\s+(.*)",
+          "captures": {
+            "0": {
+              "name": "comment.block.documentation.js"
+            },
+            "1": {
+              "name": "storage.type.class.jsdoc"
+            },
+            "2": {
+              "name": "punctuation.definition.block.tag.jsdoc"
+            },
+            "3": {
+              "name": "variable.other.jsdoc"
+            }
+          }
+        },
+        {
+          "match": "^//\\s*((@)(?:include|exclude))\\s+(.*)",
+          "captures": {
+            "0": {
+              "name": "comment.block.documentation.js"
+            },
+            "1": {
+              "name": "storage.type.class.jsdoc"
+            },
+            "2": {
+              "name": "punctuation.definition.block.tag.jsdoc"
+            },
+            "3": {
+              "patterns": [{ "match": "^/", "include": "source.js#regex" }, { "include": "#glob" }]
+            }
+          }
+        },
+        {
+          "match": "^//\\s*((@)match)\\s+(.*)",
+          "captures": {
+            "0": {
+              "name": "comment.block.documentation.js"
+            },
+            "1": {
+              "name": "storage.type.class.jsdoc"
+            },
+            "2": {
+              "name": "punctuation.definition.block.tag.jsdoc"
+            },
+            "3": {
+              "patterns": [{ "include": "#glob" }]
+            }
+          }
+        },
+        {
+          "match": "^//\\s*((@)resource)\\s+([^\\s]*)\\s+(.*)",
+          "captures": {
+            "0": {
+              "name": "comment.block.documentation.js"
+            },
+            "1": {
+              "name": "storage.type.class.jsdoc"
+            },
+            "2": {
+              "name": "punctuation.definition.block.tag.jsdoc"
+            },
+            "3": {
+              "name": "entity.name.type.instance.jsdoc"
+            },
+            "4": {
+              "name": "variable.other.link.underline.jsdoc"
+            }
+          }
+        },
+        {
+          "match": "^//\\s*((@)(?:noframes|unwrap))\\s*",
+          "captures": {
+            "0": {
+              "name": "comment.block.documentation.js"
+            },
+            "1": {
+              "name": "storage.type.class.jsdoc"
+            },
+            "2": {
+              "name": "punctuation.definition.block.tag.jsdoc"
             }
           }
         },
@@ -46,7 +194,27 @@
           "match": "^//.*",
           "captures": {
             "0": {
-              "name": "comment.block.documentation"
+              "name": "comment.block.documentation.js"
+            }
+          }
+        }
+      ]
+    },
+    "glob": {
+      "patterns": [
+        {
+          "match": "\\*",
+          "captures": {
+            "0": {
+              "name": "keyword.operator.quantifier.regexp"
+            }
+          }
+        },
+        {
+          "match": "[^\\*]",
+          "captures": {
+            "0": {
+              "name": "string.regexp.js"
             }
           }
         }

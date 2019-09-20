@@ -18,25 +18,25 @@
   "categories": [
     "Programming Languages"
   ],
+  "keywords": [
+    "userscript",
+    "greasemonkey",
+    "tampermonkey",
+    "violentmonkey",
+    "greasyfork"
+  ],
   "contributes": {
-    "languages": [
-      {
-        "id": "userjs",
-        "aliases": [
-          "JavaScript UserScript",
-          "userjs"
-        ],
-        "extensions": [
-          ".user.js"
-        ],
-        "configuration": "./language-configuration.json"
-      }
-    ],
     "grammars": [
       {
-        "language": "userjs",
-        "scopeName": "source.user.js",
-        "path": "./syntaxes/userjs.tmLanguage.json"
+        "scopeName": "text.userjs",
+        "path": "./syntaxes/userjs.tmLanguage.json",
+        "injectTo": [
+          "source.js",
+          "source.mjs",
+          "source.ts",
+          "source.jsx",
+          "source.tsx"
+        ]
       }
     ]
   },

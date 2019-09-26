@@ -24,7 +24,7 @@
     "userscript-header": {
       "patterns": [
         {
-          "match": "^//\\s*((@)(?:name(?::[^\\s]+)?|author|description|nocompat))\\s+(.*)",
+          "match": "^//\\s*((@)(?:name(?::[^\\s]+)?|author|description|nocompat|license|copyright))\\s+(.*)",
           "captures": {
             "0": {
               "name": "comment.block.documentation.js"

@@ -6,7 +6,7 @@
   "publisher": "adpyke",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kufii/vscode-userscript.git"
+    "url": "https://github.com/kufii/vscode-userscript.git"
   },
   "scripts": {
     "lint": "eslint .",

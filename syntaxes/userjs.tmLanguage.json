@@ -89,6 +89,30 @@
           }
         },
         {
+          "match": "^//\\s*((@)inject-into)\\s+(.*)",
+          "captures": {
+            "0": {
+              "name": "comment.block.documentation.js"
+            },
+            "1": {
+              "name": "storage.type.class.jsdoc"
+            },
+            "2": {
+              "name": "punctuation.definition.block.tag.jsdoc"
+            },
+            "3": {
+              "name": "comment.block.documentation.js",
+              "patterns": [
+                {
+                  "match": "\\b(?:page|content|auto)\\s*$",
+                  "name": "constant.language.symbol-type.jsdoc"
+                },
+                { "match": ".*", "name": "comment.block.documentation.js" }
+              ]
+            }
+          }
+        },
+        {
           "match": "^//\\s*((@)(?:namespace|homepage|homepageURL|website|source|icon|iconURL|defaulticon|icon64|icon64URL|updateURL|downloadURL|supportURL|require|connect))\\s+(.*)",
           "captures": {
             "0": {
